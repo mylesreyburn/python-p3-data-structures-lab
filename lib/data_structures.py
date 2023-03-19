@@ -34,8 +34,9 @@ def print_spicy_foods(spicy_foods):
         i += 1
 
 def get_spicy_food_by_cuisine(spicy_foods, cuisine):
-    filter_foods = [food for food in spicy_foods if food.get("cuisine").lower() == cuisine.lower()]
-    return filter_foods[0]
+    for item in spicy_foods:
+        if item.get("cuisine") == cuisine:
+            return item
 
 def print_spiciest_foods(spicy_foods):
     spiciest_foods = [food for food in spicy_foods if food.get("heat_level") > 5]
